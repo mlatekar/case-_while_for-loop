@@ -1,0 +1,16 @@
+#!/bin/bash -x
+
+select conversion in feet2inch feet2meter inch2feet meter2feet
+read -p  "Enter number : " number
+case $conversion in
+	1)
+	res=$(($number*12));;
+	2)
+	res=`expr $number/3.28 | bc `;;
+	3)
+	res=`expr $number/12"."$number%12 | bc`;;
+	4)
+	res=`expr $number*3.28 | bc`;;
+esac
+echo "result : $res"
+done
